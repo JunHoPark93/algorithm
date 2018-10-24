@@ -20,6 +20,7 @@ public class Main {
             int floor = user % y;
             int room;
 
+            // 꼭대기 층 조건을 걸어
             if(floor == 0) {
                 floor = y;
                 room = (user / y);
