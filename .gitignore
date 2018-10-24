@@ -1,4 +1,8 @@
 *.exe
 *.vscode
 *.class
+test
+temp
+.DS_Store
+
 
