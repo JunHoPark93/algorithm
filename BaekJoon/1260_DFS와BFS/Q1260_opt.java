@@ -36,10 +36,10 @@ public class Q1260_opt {
     private static void dfs(int n) {
         check[n] = true;
         System.out.print(n + " ");
-        for(int i = 0; i < a[n].size(); i++) {
-            int nodeIdx = a[n].get(i);
-            if(check[nodeIdx] == false) {
-                dfs(nodeIdx);
+        
+        for (int x : a[n]) {
+            if (check[x] == false) {
+                dfs(x);
             }
         }
     }
@@ -53,11 +53,11 @@ public class Q1260_opt {
             int node = q.peek();
             q.poll();
             System.out.print(node + " ");
-            for(int i = 0; i < a[node].size(); i++) {
-                int nodeCheck = a[node].get(i);
-                if(check[nodeCheck] == false) {
-                    q.add(nodeCheck);
-                    check[nodeCheck] = true;
+           
+            for (int x : a[n]) {
+                if(check[x] == false) {
+                    q.add(x);
+                    check[x] = true;
                 }
             }
         }
