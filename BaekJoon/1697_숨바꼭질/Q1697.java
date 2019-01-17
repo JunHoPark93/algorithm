@@ -5,7 +5,7 @@ public class Q1697 {
         Scanner sc = new Scanner(System.in);
         int subinLocation = sc.nextInt();
         int brotherLocation = sc.nextInt();
-        int MAX_NUM = 100001;
+        int MAX_NUM = 1000000;
         Queue<Integer> q = new LinkedList<>();
         boolean[] check = new boolean[MAX_NUM];
         int[] dist = new int[MAX_NUM];
@@ -14,13 +14,10 @@ public class Q1697 {
         dist[subinLocation] = 0;
         check[subinLocation] = true;
 
-        int cnt = 0;
-
         while (!q.isEmpty()) {
             int n = q.poll();
-            cnt++;
         
-            if (n-1 > 0 && check[n-1] == false) {
+            if (n-1 >= 0 && check[n-1] == false) {
                 q.add(n-1);
                 check[n-1] = true;
                 dist[n-1] = dist[n] + 1;
@@ -38,7 +35,7 @@ public class Q1697 {
                 dist[2*n] = dist[n] + 1;
             }
         }
-        
+
         System.out.println(dist[brotherLocation]);
     }
 }
