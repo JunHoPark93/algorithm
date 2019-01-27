@@ -43,7 +43,9 @@ public class Q2667 {
                 }
             }
         }
-
+        
+        Arrays.sort(buidingNumOfComplex);
+        
         System.out.println(count);
         for (int num : buidingNumOfComplex) {
             System.out.println(num);
