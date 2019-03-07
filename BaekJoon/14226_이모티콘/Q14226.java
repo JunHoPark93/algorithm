@@ -6,11 +6,11 @@ public class Q14226 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        boolean[] check = new boolean[MAX];
+        boolean[][] check = new boolean[MAX][MAX]; // 스크린, 클립
         Queue<Emoji> q = new LinkedList<>();
 
         q.add(new Emoji(1,0,0)); // 처음에 이모티콘의 갯수 1, 클립 보드 이모티콘의 갯수 0, 시간 0
-        check[1] = true;
+        check[1][0] = true;
 
         while(!q.isEmpty()) {
             Emoji emoji = q.poll();
@@ -24,16 +24,16 @@ public class Q14226 {
             }
 
             if (curScreen + curClip <= n) {
-                if (check[curScreen + curClip] == false) { // 클립보드 붙여 넣기
+                if (check[curScreen + curClip][curClip] == false) { // 클립보드 붙여 넣기
                     q.add(new Emoji(curScreen + curClip, curClip, curTime + 1));
-                    check[curScreen + curClip] = true;
+                    check[curScreen + curClip][curClip] = true;
                 }
             }
             
             if (curScreen - 1 >= 0) {
-                if (check[curScreen - 1] == false) { // 하나 삭제
+                if (check[curScreen - 1][curClip] == false) { // 하나 삭제
                     q.add(new Emoji(curScreen - 1, curClip, curTime + 1));
-                    check[curScreen - 1] = true;
+                    check[curScreen - 1][curClip] = true;
                 }
             }
 
