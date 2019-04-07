@@ -76,4 +76,35 @@ public class SecurityUtil {
     private static boolean checkIfNotValidWord(char c) {
         return (c >=0x3130) && (c < 0x318F);
     }
+
+    public static void crunchWord(int minComb, int maxComb, String... input) {
+        int inputLength = input.length;
+        boolean[] check;
+        LinkedList<String> list;
+        for (int i = minComb; i <= maxComb; i++) {
+            check = new boolean[inputLength];
+            list = new LinkedList<String>();
+            findCombination(inputLength, i, list, input, check);
+        }
+    }
+
+    private static void findCombination(int inputStringLength, int targetLength, LinkedList<String> list, String[] input, boolean[] check) {
+        if (list.size() == targetLength) {
+            System.out.print("\"");
+            for (String s : list) {
+                System.out.print(s);
+            }
+            System.out.print("\"");
+            return;
+        }
+        for (int i = 0; i < inputStringLength; i++){
+            if (!check[i]) {
+                list.add(input[i]);
+                check[i] = true;
+                findCombination(inputStringLength, targetLength, list, input, check);
+                check[i] = false;
+                list.removeLast();
+            }
+        }
+    }
 }
