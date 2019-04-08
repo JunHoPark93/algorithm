@@ -49,16 +49,22 @@ public class Main {
         str = str.trim();
         System.out.println("trimmed : " + str);
 
-        // compareTo
+        // compareTo : 2개의 문자열을 비교하고 int형 값을 반환하는 메서드 (같으면 0, 사전 순으로 작으면 음수, 크면 양수)
+        str = "abc";
+        System.out.println("compareto : " str.compareTo("abc"));
+        System.out.println("compareto : " str.compareTo("abd"));
 
-        // contains
+        // contains : 특정 문자열이 포함되어 있는지 확인하는 기능 (있으면 true, 없으면 false)
+        str = "I have a pen";
+        System.out.println("contains : " + str.contains("pen"));
 
-        // charAt
+        // concat : 합친 문자열을 String 으로 생성해준다.
+        str = "Hi";
+        System.out.println(str.concat("Hello"));
 
-        // concat
-
-        // format
-
-        // replaceFirst
+        // replaceFirst : 바꾸고 싶은 문자열이 처음으로 해당할 때만 바꾸어 준다.
+        str = "hi my name is park hi hi";
+        str = str.replaceFirst("hi", "hello");
+        System.out.println(str);
     }
 }
